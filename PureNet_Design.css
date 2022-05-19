@@ -1,31 +1,23 @@
-/* #side-bar{
-  background-color: #006400;
-  color: white;
-  position: sticky;
-  width: 300px;
-  height: 100%;
-  padding: 2rem;
-  overflow-y: auto;
-  overflow-x: hidden;
-  flex: auto;
-} */
 
 ::selection {
   color: white;
-  background: #7FB241;;
+  background: #7FB241;
 }
 
 html{
+  color: #555;
   font-family: "Comfortaa";
   scroll-behavior: smooth;
 }
 
 h1{
+  color: #7FB241;
   font-size: 50px;
-  line-height: 1px
+  line-height: 1px;
 }
 
 h2{
+  color: #000;
   font-size: 20px;
   opacity: 60%;
 }
@@ -38,7 +30,7 @@ h2{
 }
 
 .leaf_background{
-  background-image: url("https://images.pexels.com/photos/914682/pexels-photo-914682.jpeg");
+  background-image: url("https://images.pexels.com/photos/1131458/pexels-photo-1131458.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -46,7 +38,14 @@ h2{
   width: 100vw;
 }
 
-/* CSS for navigation bar */
+.main{
+  margin-left: 100px;
+  padding: 20px;
+  font-size: 20px;
+}
+
+/* ************************************************************************* */
+/* Full Screen Navigation Bar */
 .overlay {
   height: 0%;
   width: 100%;
@@ -65,20 +64,15 @@ h2{
   top: 25%;
   width: 100%;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .overlay a {
   padding: 8px;
   text-decoration: none;
-  font-size: 36px;
-  color: #818181;
-  display: block;
+  font-size: 30px;
+  color: #fff;
   transition: 0.3s;
-}
-
-.overlay a:hover, .overlay a:focus {
-  color: #f1f1f1;
 }
 
 .overlay .closebtn {
@@ -97,7 +91,10 @@ h2{
   right: 35px;
   }
 }
+/* ************************************************************************* */
 
+/* ************************************************************************* */
+/* The sidebar menu */
 .icon-bar {
   width: 70px; /* Set a specific width */
   background-color: #555; /* Dark-grey background */
@@ -120,7 +117,6 @@ h2{
   background-color: #7FB241; /* Add an active/current color */
 }
 
-/* The sidebar menu */
 .sidenav {
   display: block;
   float: left;
@@ -134,11 +130,8 @@ h2{
   padding: 20px;
 }
 
-.main{
-  margin-left: 100px;
-  padding: 20px;
-  font-size: 20px;
-}
+
+/* ************************************************************************* */
 
 /* ************************************************************************* */
 /* SEARCH BOX */
@@ -217,7 +210,63 @@ button:hover {
   transform: rotateX(180deg);
 }
 /* ************************************************************************* */
-.templete{
+
+/* ************************************************************************* */
+/* TOGGLE SWITCH BUTTON */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #7FB241;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #7FB241;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+/* ************************************************************************* */
+
+
+.template{
   display: none;
 }
 
