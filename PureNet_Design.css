@@ -36,6 +36,17 @@ h2{
   background-size: cover;
   height: 100vh;
   width: 100vw;
+  z-index: -1;
+}
+.background{
+  background-image: url("https://images.pexels.com/photos/1131458/pexels-photo-1131458.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  backdrop-filter: opacity(30%);
+
+  z-index: -2;
+  background-attachment:fixed;
 }
 
 .main{
@@ -265,6 +276,48 @@ input:checked + .slider:before {
 }
 /* ************************************************************************* */
 
+
+.pure-net-div{
+  padding: 0.5%;
+  padding-left: 1%;
+}
+
+.pure-net-span{
+  text-transform: capitalize;
+}
+
+.pure-net-link{
+  padding: 1%;
+  background-color: #e5f9ff;
+}
+.pure-net-link a{
+  text-decoration: none;
+  color: #0088bb;
+  cursor: crosshair;
+}
+.pure-net-link p{
+  word-wrap: break-word;
+  color: #888;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.pure-net-link button{
+  background-color: transparent;
+  padding: 3%;
+  color: #0088bb;
+}
+
+.pure-net-link button:hover{
+  background-color: white;
+  padding: 5%;
+  cursor: grab;
+}
+
+.pure-net-link img{
+  margin: auto;
+}
 
 .template{
   display: none;
