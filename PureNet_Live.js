@@ -26,7 +26,7 @@ function fetch_home() {
   //document.getElementsByTagName("body").className = "leaf_background";
 }
 
-function fetch_search(input_url, input_url_domain='https://www.google.com') {
+function fetch_search(input_url = 'https://www.google.com/search?q=', input_url_domain = 'https://www.google.com') {
   loading();
 
   // Update icon bar selection
@@ -52,9 +52,10 @@ function fetch_search(input_url, input_url_domain='https://www.google.com') {
   $.ajax({
     url: './scraper-server/scraper.php',
     type: "GET",
-    data: { URL: `https://www.google.com/search?q=${search_text}`,
-            URL_DOMAIN:"https://www.google.com"
-          }
+    data: {
+      URL: encodeURIComponent(input_url + search_text.replaceAll(" ","%20")),
+      URL_DOMAIN: input_url_domain
+    }
   }).done(function (html_file) {
     // html_file = jQuery.parseHTML(html_file);
     // console.log(html_file);
@@ -62,6 +63,30 @@ function fetch_search(input_url, input_url_domain='https://www.google.com') {
     // document.getElementById("main-placeholder").innerHTML=html_file
     //html_file.replace('/(<[^>]+) style=".*?"/i', ' ');
     // html_file_v1 = jQuery.parseHTML(html_file);
+    $("#main-placeholder").html(html_file);
+  });
+
+}
+
+function fetch_url(input_url, input_url_domain = 'https://www.google.com') {
+  loading();
+
+  // Update icon bar selection
+  document.getElementById("ic-home").className = "";
+  document.getElementById("ic-search").className = "active";
+  document.getElementById("ic-filter").className = "";
+  document.getElementById("ic-settings").className = "";
+  document.getElementById("ic-devtool").className = "";
+  document.getElementById("body").className = "";
+
+  $.ajax({
+    url: './scraper-server/scraper.php',
+    type: "GET",
+    data: {
+      URL: input_url,
+      URL_DOMAIN: input_url_domain
+    }
+  }).done(function (html_file) {
     $("#main-placeholder").html(html_file);
   });
 

@@ -13,8 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 else if ($_SERVER["REQUEST_METHOD"] == "GET"){
-    str_replace('&amp;', '&', $URL);
-    $URL = $_GET['URL'];
+    $URL = urldecode($_GET['URL']);
     if (empty($URL)) {
         echo "URL is empty";
     } else {
@@ -50,6 +49,9 @@ else if ($_SERVER["REQUEST_METHOD"] == "GET"){
         foreach($html->find('span') as $e){
             $e->class = "pure-net-span";
         }
+        foreach($html->find('script') as $e){
+            $e->outertext = "";
+        }
 
         foreach($html->find('a') as $e){
             $str = strval($e->href);
@@ -63,7 +65,7 @@ else if ($_SERVER["REQUEST_METHOD"] == "GET"){
                 . $e->innertext
                 .'<br/>'
                 . '<p>'
-                . '<a href=/scraper-server/scraper.php?URL=' . str_replace('&', '&amp;', $e->href) . '>'
+                . '<a onclick="fetch_url(\'' . $e->href . '\')">'
                     . $link_icon . ' Link Here ' 
                 . '</a>'
                 .'<br/>'
