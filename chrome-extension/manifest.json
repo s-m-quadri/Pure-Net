@@ -1,6 +1,6 @@
 {
   "name": "Getting Started Example",
-  "description": "Build an Extension!",
+  "description": "This extension will search the document file for keywords and hide their parent div.",
   "version": "1.0",
   "manifest_version": 3,
   "background": {
@@ -22,5 +22,14 @@
     "48": "/images/get_started48.png",
     "128": "/images/get_started128.png"
   },
+
+   "content_scripts": [{
+        "matches":    ["*://*/*"],
+        "js":         ["PureNet_Injection.js"],
+        "css" : ["PureNet_Design.css"],
+        "run_at": "document_end",
+        "all_frames": true
+    }],
+    
   "options_page": "options.html"
 }
