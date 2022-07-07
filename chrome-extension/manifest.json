@@ -1,12 +1,16 @@
 {
-  "name": "Getting Started Example",
-  "description": "This extension will search the document file for keywords and hide their parent div.",
+  "name": "Pure Net Web Space",
+  "description": "This extension will Filter the necessary components of html",
   "version": "1.0",
   "manifest_version": 3,
   "background": {
     "service_worker": "background.js"
   },
-  "permissions": ["storage", "activeTab", "scripting"],
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -22,14 +26,34 @@
     "48": "/images/get_started48.png",
     "128": "/images/get_started128.png"
   },
-
-   "content_scripts": [{
-        "matches":    ["*://*/*"],
-        "js":         ["PureNet_Injection.js"],
-        "css" : ["PureNet_Design.css"],
-        "run_at": "document_end",
-        "all_frames": true
-    }],
-    
-  "options_page": "options.html"
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/*"
+      ],
+      "js": [
+        "PureNet_Injection.js"
+      ],
+      "css":[
+        "PureNet_Injection.css"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "options_page": "options.html",
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "PureNet_Controler.html",
+        "PureNet_Controler.css",
+        "PureNet_Controler.js",
+        "*"
+      ],
+      "matches": [
+        "*://*/*"
+      ],
+      "use_dynamic_url": true
+    }
+  ]
 }
