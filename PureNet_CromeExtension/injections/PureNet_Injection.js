@@ -1,35 +1,12 @@
 
-console.log("Running myscript.js");
+console.log("Running PureNet_Injection.js");
 
-
-
-// var original_doc = document.querySelector("html").innerHTML;
-
-// console.log(chrome.runtime.getURL("./template.html"))
-// var placeholder = document.querySelector("html");
-
-
-// let script_src = chrome.runtime.getURL("./PureNet_Controler.js");
-// let stylesheet_src = chrome.runtime.getURL("./PureNet_Controler.css");
-
-// var request = new XMLHttpRequest();
-// request.onreadystatechange = function () {
-//     if (this.readyState == 4 && this.status == 200) {
-//         placeholder.innerHTML = this.responseText;
-//         document.querySelector("head").innerHTML += ('<link rel="stylesheet" href=' + stylesheet_src + '>');
-//         document.querySelector("head").innerHTML += ('<script src=' + script_src + '></script>');
-//     }
-// };
-// request.open('GET', chrome.runtime.getURL("./PureNet_Controler.html"), true);
-// request.send();
-// placeholder.innerHTML = "Boom !";
-// placeholder.innerHTML = original_doc;
-
+var original_doc = document.querySelector("html").outerHTML;
 
 // 1. Remove specified Tags
 var tagsToRemove = ["script", "head", "footer", "style", "link", "iframe", "footer"];
 remove(["script", "style", "noscript", "link", "footer"]);
-function remove(tag_name) {
+async function remove(tag_name) {
     for (let n = 0; n < tag_name.length; n++) {
         while (document.querySelector(tag_name[n]) != null) {
             selector = document.querySelector(tag_name[n]);
@@ -40,7 +17,7 @@ function remove(tag_name) {
 
 // 2. Clean_up specified Tags
 clean_up(["div", "span", "cite", "ul", "ol", "li"]);
-function clean_up(tag_name) {
+async function clean_up(tag_name) {
     for (let n = 0; n < tag_name.length; n++) {
         while (document.querySelector(tag_name[n]) != null) {
             selector = document.querySelector(tag_name[n]);
@@ -49,59 +26,7 @@ function clean_up(tag_name) {
     }
 }
 
-// 2. Clean_up specified Tags
-// var tagsToClean = ["body", "div", "span", "h1", "h2", "h3", "h4", "h5", "h6", "h7", "h1"];
-// clean_up(tagsToClean);
-// function clean_up(tag_name){
-//     for (let n = 0 ; n < tag_name.length ; n++){
-//         let temp = document.querySelectorAll(tag_name[n]);
-//         for (let index = 0; index < temp.length; index++) {
-//             temp[index].outerHTML = "<" + tag_name[n] + " class='pure-net-" + tag_name[n] + "'>" + temp[index].innerHTML + "</" + tag_name[n]+ ">";
-//         }
-//     }
-// }
-
-// 2. Clean_up specified Tags
-// var tagsToClean = ["body", "div", "span", "h1", "h2", "h3", "h4", "h5", "h6", "h7", "h1"];
-// clean_up(tagsToClean);
-// function clean_up(tag_name){
-//     for (let n = 0 ; n < tag_name.length ; n++){
-//         // while (document.querySelector(tag_name[n]) != null) {
-//         //     let selector = document.querySelector(tag_name[n]);
-//         //     document.querySelector(tag_name[n]).outerHTML = "<pureNetTemp>" +document.querySelector(tag_name[n]).innerHTML + "</pureNetTemp>";
-//         // }
-//         // for(let selector = document.querySelector(tag_name[n]); selector != null;){
-//         //     document.querySelector(tag_name[n]).outerHTML = "<pureNetTemp>" +document.querySelector(tag_name[n]).innerHTML + "</pureNetTemp>";
-//         // }
-//         // while (document.querySelector("<pureNetTemp>") != null) {
-//         //     document.querySelector("<pureNetTemp>").outerHTML =  "<" + tag_name[n] + " class='pure-net-" + tag_name[n] + "'>" + document.querySelector(tag_name[n]).innerHTML + "</" + tag_name[n]+ ">";
-//         // }
-//         // let temp = document.querySelectorAll(tag_name[n]);
-//         // for (let index = 0; index < temp.length; index++) {
-//         //     temp[index].outerHTML = "<" + tag_name[n] + " class='pure-net-" + tag_name[n] + "'>" + temp[index].innerHTML + "</" + tag_name[n]+ ">";
-//         // }
-//     }
-// }
-
-// var tagsToRemove = ["div", "span", "script", "style"];
-
-// while(document.querySelector("div") != null){
-//     document.querySelector("div").outerHTML = document.querySelector("div").innerHTML;
-// }
-
-// // 3. Decorate the links 
-// var all_links = document.querySelectorAll("a");
-// for (let index = 0; index < all_links.length; index++) {
-//     all_links[index].outerHTML =
-//         '<span class="pure-net-link"> '
-//         + all_links[index].innerHTML
-//         + '</span>'
-//         + '<a href="' + all_links[index].getAttribute("href") + '">'
-//         + ' <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/><path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/></svg> '
-//         + '</a>';
-// }
-
-// 3. Decorate the links 
+// 3. Decorate the links
 var all_links = document.querySelectorAll("a");
 for (let index = 0; index < all_links.length; index++) {
     all_links[index].outerHTML =
@@ -112,8 +37,9 @@ for (let index = 0; index < all_links.length; index++) {
         + ' <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/><path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/></svg> '
         + '</a>';
 }
+
 // 4. Alert if clicked on link
-var Anchors = document.getElementsByTagName("a");
+var Anchors = document.querySelectorAll("a");
 for (var i = 0; i < Anchors.length; i++) {
     Anchors[i].addEventListener("click",
         function (event) {
@@ -176,3 +102,22 @@ for (let index = 0; index < contents.length; index++) {
     }
 }
 sideBar.innerHTML += '<h2>Useful Links</h2>';
+sideBar.innerHTML += "<div class='pure-net-side-bar-h2'><a id='print'>Print the document</a></div>"
+sideBar.innerHTML += "<div class='pure-net-side-bar-h2'><a id='close'>Close pure-net view</a></div>"
+
+document.querySelector("#print").addEventListener("click",
+    function (event) {
+        event.preventDefault();
+        let doc = window.open('', '', '');
+        doc.document.write(original_doc);
+        doc.document.close();
+        doc.print();
+    },
+    false);
+
+document.querySelector("#close").addEventListener("click",
+    function (event) {
+        event.preventDefault();
+        document.write(original_doc);
+    },
+    false);
