@@ -1,0 +1,283 @@
+:root {
+  /* Colors */
+  --title-color: #1D1E18;
+  --heading-color: #6B8F71;
+  --subheading-color: #AAD2BA;
+  --background-color: #D9FFF5;
+  --highlight-color: #B9F5D8;
+  --link-color: #004b6b;
+  /* refer: https://coolors.co/1d1e18-6b8f71-aad2ba-d9fff5-b9f5d8 */
+
+  /* Fonts */
+  font-family: 'Garamond', 'Georgia', serif;
+  font-size: medium;
+  line-height: 1.5;
+
+  /* Border And Body */
+  background-color: #fff;
+  border: var(--title-color) solid thick;
+  border-top-width: 49vh;
+  border-bottom-width: 49vh;
+  border-left-width: 49vw;
+  border-right-width: 49vw;
+  height: 98vh;
+  width: 98vw;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  animation: changing_border_colors 5s infinite linear;
+}
+
+::selection {
+  color: var(--title-color);
+  background: var(--highlight-color);
+}
+
+@media (max-width: 720px),
+(max-height: 400px) {
+  #pure-net-main {
+    display: none;
+  }
+
+  #pure-net-side-bar {
+    display: none;
+  }
+
+  body {
+    background-color: var(--highlight-color);
+    text-align: center;
+    color: var(--heading-color);
+    height: 98vh;
+  }
+
+  body::after {
+    font-size: 50px;
+    content: "Sorry! Don't Support on Small Screens";
+    animation: changing_text_colors 1s infinite linear;
+  }
+
+}
+
+@keyframes changing_border_colors {
+  0% {
+    border: var(--title-color) solid thick;
+  }
+
+  50% {
+    border: var(--background-color) solid thick;
+  }
+
+  100% {
+    border: var(--title-color) solid thick;
+  }
+}
+
+@keyframes changing_text_colors {
+  0% {
+    color: var(--heading-color);
+  }
+
+  50% {
+    color: var(--subheading-color);
+  }
+
+  100% {
+    color: var(--heading-color);
+  }
+}
+
+@keyframes changing_fill_colors {
+  0% {
+    fill: var(--heading-color);
+  }
+
+  50% {
+    fill: var(--subheading-color);
+  }
+
+  100% {
+    fill: var(--heading-color);
+  }
+}
+
+
+body {
+  margin: 0px;
+  padding: 0px;
+  height: 98vh;
+  width: 98vw;
+  display: flex;
+  flex-direction: column;
+}
+
+#pure-net-main {
+  /* width:unset; */
+  float: right;
+  width: calc(98vw - 245px);
+  height: calc(98vh - 20px);
+  position: relative;
+  margin-left: 240px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  /* padding: 1px; */
+  overflow: scroll;
+}
+
+#pure-net-side-bar {
+  float: left;
+  position: fixed;
+  margin-top: 10px;
+  margin-left: 15px;
+  padding-right: 15px;
+  height: 90vh;
+  width: 200px;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+h1 {
+  font-weight: normal;
+  color: var(--title-color);
+  font-size: 40px;
+  border-bottom: dotted 2px;
+  margin-top: 40px;
+}
+
+h2 {
+  font-weight: normal;
+  color: var(--title-color);
+  font-size: 25px;
+  margin-block-start: 25px;
+  margin-block-end: 5px;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  color: var(--heading-color);
+  font-size: 25px;
+  margin-block-start: 25px;
+  margin-block-end: 5px;
+}
+
+#pure-net-side-bar h1 {
+  margin-top: 5px;
+  font-size: 50px;
+  border-bottom: solid;
+  border-width: 1px;
+  font-weight: bolder;
+  animation: changing_text_colors 5s infinite linear;
+}
+
+.pure-net-side-bar-h1 {
+  text-indent: 0px;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.pure-net-side-bar-h2 {
+  text-indent: 20px;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.pure-net-side-bar-hx {
+  text-indent: 45px;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+
+#pure-net-side-bar a {
+  border-bottom: dotted 1px;
+}
+
+#pure-net-side-bar a:hover {
+  border-bottom: solid 1px;
+}
+
+#pure-net-side-bar svg {
+  width: 10px;
+  height: auto;
+}
+
+#pure-net-icon {
+  margin: auto;
+  margin-top: 10px;
+}
+
+#pure-net-icon svg {
+  width: 100px;
+  margin-left: 30px;
+  height: auto;
+  animation: changing_fill_colors 5s infinite linear;
+}
+
+
+.pure-net-link {
+  color: var(--link-color);
+}
+
+a {
+  text-decoration: none;
+  color: var(--link-color);
+  cursor: pointer;
+}
+
+.template {
+  display: none;
+}
+
+iframe {
+  border: none;
+  width: 100%;
+  height: 80vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+footer {
+  height: 100px;
+}
+
+svg {
+  width: 20px;
+  height: auto;
+}
+
+input {
+  margin: 3px;
+  padding: 3px;
+  background-color: #D9FFF5;
+  border: #1D1E18 thick solid;
+  border-width: 1px;
+  outline: none;
+}
+
+button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: #1D1E18;
+  cursor: grab;
+}
+
+.pure-net-button {
+  color: #1D1E18;
+}
+
+.pure-net-image {
+  display: block;
+  margin: 5px;
+  padding: 5px;
+  max-width: 100%;
+  height: auto;
+}

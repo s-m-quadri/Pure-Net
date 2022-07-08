@@ -1,0 +1,80 @@
+:root {
+    /* Colors */
+    --title-color: #1D1E18;
+    --heading-color: #6B8F71;
+    --subheading-color: #AAD2BA;
+    --background-color: #D9FFF5;
+    --highlight-color: #B9F5D8;
+    --link-color: #004b6b;
+    --extreme-green: #009345;
+    /* refer: https://coolors.co/1d1e18-6b8f71-aad2ba-d9fff5-b9f5d8 */
+
+    /* Fonts */
+    font-family: 'Garamond', 'Georgia', serif;
+    font-size: medium;
+    line-height: 1.5;
+
+    /* Border And Body */
+    background-color: var(--heading-color);
+    animation: changing_bg_colors 5s infinite linear;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+@keyframes changing_bg_colors {
+    0% {
+      background-color: var(--heading-color);
+    }
+  
+    50% {
+      background-color: var(--subheading-color);
+    }
+  
+    100% {
+      background-color: var(--heading-color);
+    }
+  }
+
+::selection {
+    color: var(--title-color);
+    background: var(--highlight-color);
+}
+
+#main {
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: auto;
+    align-items: center;
+    border: var(--highlight-color) thin solid;
+}
+
+#icon {
+    padding: 10px;
+    margin: auto;
+    width: 100px;
+    height: auto;
+}
+
+#Activate{
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 50px;
+    background-color: #fff;
+    color: var(--heading-color);
+    outline: none;
+    border: none;
+}
+
+#Activate:hover{
+    background-color: var(--background-color);
+}
+
+#button{
+    display: block;
+    margin: auto;
+    margin-left: 10px;
+}

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PureNet_Controler</title>
+    <!-- <script src="PureNet_Controler.js"></script>
+    <link rel="stylesheet" href="PureNet_Controler.css"> -->
+    <script>
+        function open_nav_bar(action) {
+            if (Boolean(action) == true)
+                document.getElementById("filters-fullscreen-bar").style.height = "100%";
+            else
+                document.getElementById("filters-fullscreen-bar").style.height = "0%";
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Pure Net</h1>
+    <h2><button onclick="open_nav_bar(1)" id="menu">Menu</button></h2>
+
+
+    <div id="filters-fullscreen-bar" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="open_nav_bar(0)">&times;</a>
+        <div class="overlay-content">
+            <span>Images
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </span>
+            <br><br>
+
+            <span>Videos
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </span>
+            <br><br>
+
+            <span>Links
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </span>
+            <br><br>
+
+            <span>Text
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </span>
+            <br><br>
+        </div>
+    </div>
+</body>
+<footer>
+    
+</footer>
+
+</html>
