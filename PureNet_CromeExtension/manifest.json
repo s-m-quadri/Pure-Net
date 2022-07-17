@@ -1,7 +1,7 @@
 {
   "name": "Pure Net Web Space",
   "description": "This extension will split the necessary components of webpage",
-  "version": "1.0",
+  "version": "2.0",
   "manifest_version": 3,
   "background": {
     "service_worker": "./background.js"
@@ -26,5 +26,8 @@
     "48": "./icons/PureNet.png",
     "128": "./icons/PureNet.png"
   },
-  "options_page": "./options/options.html"
+  "options_ui": {
+    "page": "./options/options.html",
+    "open_in_tab": true
+  }
 }

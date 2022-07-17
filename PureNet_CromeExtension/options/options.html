@@ -1,14 +1,87 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="button.css">
-  </head>
-  <body>
-    <div id="buttonDiv">
-    </div>
-    <div>
-      <p>Choose a different background color!</p>
-    </div>
-  </body>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Options</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+
+<body>
+  <div class="heading-container">
+    Options
+  </div>
+  <div class="input">
+    <input type="checkbox" name="remove_script" id="remove_script">
+    <label for="remove_script">Remove 'script' tag with content inside it.</label>
+  </div>
+  <div class="input">
+    <input type="checkbox" name="remove_style" id="remove_style">
+    <label for="remove_style">Remove 'style' tag with content inside it.</label>
+  </div>
+  <div class="input">
+    <input type="checkbox" name="remove_link" id="remove_link">
+    <label for="remove_link">Remove 'link' tag with content inside it.</label>
+  </div>
+  <div class="input">
+    <input type="checkbox" name="remove_footer" id="remove_footer">
+    <label for="remove_footer">Remove 'footer' tag with content inside it.</label>
+  </div>
+  <div class="input">
+    <input type="checkbox" name="remove_iframe" id="remove_iframe">
+    <label for="remove_iframe">Remove 'iframe' tag with content inside it.</label>
+  </div>
+  <div class="input">
+    <input type="checkbox" name="clean_div" id="clean_div">
+    <label for="clean_div">Clean 'div' tag without affecting content inside it.</label>
+  </div>
+  <div class="input">
+    <input type="checkbox" name="clean_nav" id="clean_nav">
+    <label for="clean_nav">Clean 'nav' tag without affecting content inside it.</label>
+  </div>
+  <div class="input">
+    <input type="checkbox" name="clean_span" id="clean_span">
+    <label for="clean_span">Clean 'span' tag without affecting content inside it.</label>
+  </div>
+  <div class="input">
+    <input type="checkbox" name="clean_cite" id="clean_cite">
+    <label for="clean_cite">Clean 'cite' tag without affecting content inside it.</label>
+  </div>
+  <div class="input">
+    <input type="checkbox" name="clean_ul" id="clean_ul">
+    <label for="clean_ul">Clean 'ul' tag without affecting content inside it.</label>
+  </div>
+  <div class="input">
+    <input type="checkbox" name="clean_ol" id="clean_ol">
+    <label for="clean_ol">Clean 'ol' tag without affecting content inside it.</label>
+  </div>
+  <div class="input">
+    <input type="checkbox" name="clean_li" id="clean_li">
+    <label for="clean_li">Clean 'li' tag without affecting content inside it.</label>
+  </div>
+  <div class="input">
+    <input type="checkbox" name="extract_a" id="extract_a">
+    <label for="extract_a">Extract contents inside 'a' tag.</label>
+  </div>
+  <div class="input">
+    <input type="checkbox" name="extract_img" id="extract_img">
+    <label for="extract_img">Extract contents inside 'img' tag.</label>
+  </div>
+  <div class="input">
+    <input type="checkbox" name="extract_button" id="extract_button">
+    <label for="extract_button">Extract contents inside 'button' tag.</label>
+  </div>
+  <div class="input">
+    <input type="checkbox" name="alert_on_link_click" id="alert_on_link_click">
+    <label for="alert_on_link_click">Adding event listeners on 'a' tags.</label>
+  </div>
+  <div class="action-panel">
+    <button id="check-all-none">Check Each Of The Above</button>
+    <button id="submit">Save Changes</button>
+  </div>
   <script src="options.js"></script>
+</body>
+
 </html>
