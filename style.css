@@ -15,14 +15,28 @@
   line-height: 1.5;
 
   /* Border And Body */
-  border: #fff thick solid;
-  margin: 1%;
-  height: 94vh;
-  background-color: var(--heading-color);
-  animation: changing_bg_colors 5s infinite linear;
+  display: flex;
+  flex-wrap: wrap;
   scroll-behavior: smooth;
 }
 
+
+::-webkit-scrollbar-track {
+
+  background-color: var(--background-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--subheading-color);
+}
 
 @keyframes changing_bg_colors {
   0% {
@@ -43,13 +57,41 @@
   background: var(--highlight-color);
 }
 
-#main {
-  padding: 10%;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  margin: auto;
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
 
+}
+
+#main {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  width: 100%;
   height: 100%;
+
+}
+
+.side-bar {
+  display: flex;
+  position: sticky;
+  flex-wrap: wrap;
+  align-content: center;
+  background-color: var(--heading-color);
+  animation: changing_bg_colors 5s infinite linear;
+  padding: 30px;
+  width: 300px;
+  height: calc(100vh - 60px);
+}
+
+.main-bar {
+  overflow-y: auto;
 }
 
 #icon {
@@ -59,30 +101,71 @@
 }
 
 #icon svg {
-  padding: 0.5%;
-  width: 50vw;
-  height: 50vh;
-  margin-left: 15%;
+  padding: 10px;
+  width: 200px;
+  height: 200px;
+  margin: auto;
 }
 
-#Activate {
-  margin-left: 35%;
-  margin-top: 5%;
-  padding: 3vh;
-  padding-left: 5vw;
-  padding-right: 5vw;
-  font-size: x-large;
-  border-radius: 50px;
+#button {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  margin: auto;
+}
+
+#button a {
+  text-decoration: none;
+}
+
+#download-button {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  padding: 15px;
+  font-size: large;
+  width: 250px;
+  border-radius: 10px;
   background-color: #fff;
   color: var(--heading-color);
   outline: none;
   border: none;
 }
 
-#Activate:hover {
+#download-button:hover {
   background-color: var(--background-color);
 }
 
-/* #button{
-    margin-left: 20vw;
-} */
+.button-text {
+  border: none;
+  width: 85%;
+}
+
+.button-icon {
+  width: 15%;
+}
+
+.button-icon svg {
+  height: 40px;
+  width: 30px;
+}
+
+.instructions-container {
+  height: calc(100vh - 60px);
+
+  margin: 30px;
+}
+
+
+h1 {
+  color: var(--heading-color);
+  font-weight: normal;
+  font-size: xx-large;
+}
+
+h2 {
+  color: var(--title-color);
+  font-weight: normal;
+  font-size: x-large;
+}

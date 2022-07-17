@@ -1,47 +1,51 @@
-let page = document.getElementById("buttonDiv");
-let selectedClassName = "current";
-const presetButtonColors = ["#3aa757", "#e8453c", "#f9bb2d", "#4688f1"];
+var variables = [
+  "remove_script",
+  "remove_style",
+  "remove_link",
+  "remove_footer",
+  "remove_iframe",
+  "clean_div",
+  "clean_nav",
+  "clean_span",
+  "clean_cite",
+  "clean_ul",
+  "clean_ol",
+  "clean_li",
+  "extract_a",
+  "extract_img",
+  "extract_button",
+  "alert_on_link_click"
+];
 
-// Reacts to a button click by marking marking the selected button and saving
-// the selection
-function handleButtonClick(event) {
-  // Remove styling from the previously selected color
-  let current = event.target.parentElement.querySelector(
-    `.${selectedClassName}`
-  );
-  if (current && current !== event.target) {
-    current.classList.remove(selectedClassName);
-  }
+let toggle_check_all = true;
 
-  // Mark the button as selected
-  let color = event.target.dataset.color;
-  event.target.classList.add(selectedClassName);
-  chrome.storage.sync.set({ color });
-}
-
-// Add a button to the page for each supplied color
-function constructOptions(buttonColors) {
-  chrome.storage.sync.get("color", (data) => {
-    let currentColor = data.color;
-
-    // For each color we were provided…
-    for (let buttonColor of buttonColors) {
-      // …crate a button with that color…
-      let button = document.createElement("button");
-      button.dataset.color = buttonColor;
-      button.style.backgroundColor = buttonColor;
-
-      // …mark the currently selected color…
-      if (buttonColor === currentColor) {
-        button.classList.add(selectedClassName);
+document.getElementById("submit").addEventListener("click", function () {
+  // Update the values
+  for (let key in variables) {
+    let value = variables[key];
+    chrome.storage.local.set({ value: document.getElementById(value).checked },
+      function () {
+        console.log(value + " is set to " + document.getElementById(value).checked);
       }
+    );
+  }
+  window.close();
+});
 
-      // …and register a listener for when that button is clicked
-      button.addEventListener("click", handleButtonClick);
-      page.appendChild(button);
+document.getElementById("check-all-none").addEventListener("click", function () {
+  if (toggle_check_all) {
+    for (let key in variables) {
+      let value = variables[key];
+      document.getElementById(value).checked = true;
     }
-  });
-}
-
-// Initialize the page by constructing the color options
-constructOptions(presetButtonColors);
+    document.getElementById("check-all-none").innerText = "Check None Of The Above";
+    toggle_check_all = false;
+  } else {
+    for (let key in variables) {
+      let value = variables[key];
+      document.getElementById(value).checked = false;
+    }
+    document.getElementById("check-all-none").innerText = "Check Each Of The Above";
+    toggle_check_all = true;
+  }
+});
