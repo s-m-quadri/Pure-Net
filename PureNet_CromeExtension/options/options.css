@@ -102,7 +102,10 @@ body {
     border-width: 3px;
     animation: changing_border_colors 5s infinite linear;
 }
-
+#placeholder{
+    font-size: large;
+    padding: 10px;
+}
 .input {
     font-size: medium;
     display: block;
@@ -130,14 +133,7 @@ button {
 
 #check-all-none {
     animation: changing_bg_colors 5s infinite linear;
-    width: calc(60% - 5px);
-    border-radius: 3px;
-}
-
-#submit {
-    animation: changing_bg_warning_colors 5s infinite linear;
-    width: calc(40% - 5px);
-    align-self: flex-end;
+    width: calc(50% - 5px);
     border-radius: 3px;
 }
 
@@ -145,6 +141,26 @@ button {
     background-color: var(--heading-color) !important;
     cursor: pointer;
 }
+
+#cancel {
+    animation: changing_bg_colors 5s infinite linear;
+    width: calc(20% - 5px);
+    border-radius: 3px;
+}
+
+#cancel:hover {
+    background-color: var(--heading-color) !important;
+    cursor: pointer;
+}
+
+#submit {
+    animation: changing_bg_warning_colors 5s infinite linear;
+    width: calc(30% - 5px);
+    align-self: flex-end;
+    border-radius: 3px;
+}
+
+
 
 #submit:hover {
     background-color: var(--dark-red) !important;

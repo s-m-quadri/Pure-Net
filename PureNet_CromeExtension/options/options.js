@@ -23,13 +23,18 @@ document.getElementById("submit").addEventListener("click", function () {
   // Update the values
   for (let key in variables) {
     let value = variables[key];
-    chrome.storage.local.set({ value: document.getElementById(value).checked },
-      function () {
-        console.log(value + " is set to " + document.getElementById(value).checked);
-      }
+    // chrome.storage.local.set({ value: document.getElementById(value).checked },
+    chrome.storage.local.set({ [value]: document.getElementById(value).checked },
+      function () { }
     );
+    chrome.storage.local.get([value], function (result) {
+      console.log("Success: " + [value] + " is set to " + result[value])
+    });
   }
-  window.close();
+
+  document.getElementById("placeholder").innerHTML = "Success, see the logs for more details";
+  document.getElementById("check-all-none").outerHTML = "";
+  document.getElementById("submit").outerHTML = "";
 });
 
 document.getElementById("check-all-none").addEventListener("click", function () {
@@ -48,4 +53,8 @@ document.getElementById("check-all-none").addEventListener("click", function () 
     document.getElementById("check-all-none").innerText = "Check Each Of The Above";
     toggle_check_all = true;
   }
+});
+
+document.getElementById("cancel").addEventListener("click", function () {
+  window.close();
 });

@@ -117,6 +117,7 @@ body {
 
 #button a {
   text-decoration: none;
+  outline: none;
 }
 
 #download-button {
@@ -130,7 +131,7 @@ body {
   background-color: #fff;
   color: var(--heading-color);
   outline: none;
-  border: none;
+  border: var(--link-color) solid 1px;
 }
 
 #download-button:hover {
@@ -138,11 +139,15 @@ body {
 }
 
 .button-text {
+  color: var(--link-color);
   border: none;
   width: 85%;
 }
-
+.button-text b{
+  color: var(--heading-color);
+}
 .button-icon {
+  color: var(--link-color);
   width: 15%;
 }
 
@@ -162,12 +167,15 @@ h1 {
   color: var(--heading-color);
   font-weight: normal;
   font-size: xx-large;
+  border-bottom: dotted var(--heading-color) 2px;
 }
 
 h2 {
-  color: var(--title-color);
+  color: var(--link-color);
+  margin-top: 50px;
   font-weight: normal;
   font-size: x-large;
+
 }
 
 img{
