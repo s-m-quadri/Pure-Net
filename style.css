@@ -65,6 +65,18 @@ body {
 
 }
 
+a {
+  text-decoration: none;
+  border-bottom: dotted;
+  border-width: 1px;
+  color: var(--link-color);
+}
+
+a:hover {
+  border-bottom: solid;
+  border-width: 1px;
+}
+
 #main {
   display: flex;
   flex-wrap: nowrap;
@@ -143,9 +155,11 @@ body {
   border: none;
   width: 85%;
 }
-.button-text b{
+
+.button-text b {
   color: var(--heading-color);
 }
+
 .button-icon {
   color: var(--link-color);
   width: 15%;
@@ -178,7 +192,7 @@ h2 {
 
 }
 
-img{
+img {
   max-width: 100%;
   margin-top: 20px;
   margin-bottom: 20px;
